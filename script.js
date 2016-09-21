@@ -38,11 +38,16 @@ $(function() {
     totaldiv.text(number);
     testNumLength(number);
     });
-    $("#operators > a").not("#equals").click(function(){
-    operator = $(this).text();
-    newnumber = number;
-    number = "";
-    totaldiv.text("0");
+    $("#operators a, #side a").not("#equals, #decimal").click(function(){
+        if ($(this).attr("id") === "sqrt") {
+            operator = "sqrt";
+            $("#equals").trigger();
+            return
+        }
+        operator = $(this).text();
+        newnumber = number;
+        number = "";
+        totaldiv.text("0");
     });
     $("#clear,#clearall").click(function(){
     number = "";
@@ -51,20 +56,37 @@ $(function() {
       newnumber = "";
     }
     });
+    $("#decimal").click(function() {
+        var numOfDecs = 0;
+        for (i=0; i <= number.length; i++) {
+            if (number[i] === ".") {
+                numOfDecs =+ 1;   
+            }
+        }
+        if (numOfDecs === 0){
+            number = number + ".";
+        }
+        totaldiv.text(number);
+        testNumLength(number);
+    })
     $("#equals").click(function(){
-    if (operator === "+"){
-      number = (parseInt(number, 10) + parseInt(newnumber,10)).toString(10);
-    } else if (operator === "-"){
-      number = (parseInt(newnumber, 10) - parseInt(number,10)).toString(10);
-    } else if (operator === "/"){
-      number = (parseInt(newnumber, 10) / parseInt(number,10)).toString(10);
-    } else if (operator === "*"){
-      number = (parseInt(newnumber, 10) * parseInt(number,10)).toString(10);
-    }
-    totaldiv.text(number);
-    testNumLength(number);
-    number = "";
-    newnumber = "";
+        if (operator === "+"){
+            number = (parseInt(number, 10) + parseInt(newnumber,10)).toString(10);
+        } else if (operator === "-"){
+            number = (parseInt(newnumber, 10) - parseInt(number,10)).toString(10);
+        } else if (operator === "/"){
+            number = (parseInt(newnumber, 10) / parseInt(number,10)).toString(10);
+        } else if (operator === "*"){
+            number = (parseInt(newnumber, 10) * parseInt(number,10)).toString(10);
+        } else if (operator === "&sqrt;"){
+            number = (Math.sqrt(parseInt(number, 10))).toString(10);   
+        } else if (operator === "^"){
+            number = (Math.pow(parseInt(newnumber, 10))).toString(10);   
+        }
+        totaldiv.text(number);
+        testNumLength(number);
+        number = "";
+        newnumber = "";
     });
   $(document).keypress(function(event){
         var keycode = (event.keyCode ? event.keyCode : event.which);
