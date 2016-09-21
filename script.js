@@ -70,19 +70,23 @@ $(function() {
         testNumLength(number);
     })
     $("#equals").click(function(){
-    if (operator === "+"){
-      number = (parseInt(number, 10) + parseInt(newnumber,10)).toString(10);
-    } else if (operator === "-"){
-      number = (parseInt(newnumber, 10) - parseInt(number,10)).toString(10);
-    } else if (operator === "/"){
-      number = (parseInt(newnumber, 10) / parseInt(number,10)).toString(10);
-    } else if (operator === "*"){
-      number = (parseInt(newnumber, 10) * parseInt(number,10)).toString(10);
-    }
-    totaldiv.text(number);
-    testNumLength(number);
-    number = "";
-    newnumber = "";
+        if (operator === "+"){
+            number = (parseInt(number, 10) + parseInt(newnumber,10)).toString(10);
+        } else if (operator === "-"){
+            number = (parseInt(newnumber, 10) - parseInt(number,10)).toString(10);
+        } else if (operator === "/"){
+            number = (parseInt(newnumber, 10) / parseInt(number,10)).toString(10);
+        } else if (operator === "*"){
+            number = (parseInt(newnumber, 10) * parseInt(number,10)).toString(10);
+        } else if (operator === "&sqrt;"){
+            number = (Math.sqrt(parseInt(number, 10))).toString(10);   
+        } else if (operator === "^"){
+            number = (Math.pow(parseInt(newnumber, 10))).toString(10);   
+        }
+        totaldiv.text(number);
+        testNumLength(number);
+        number = "";
+        newnumber = "";
     });
   $(document).keypress(function(event){
         var keycode = (event.keyCode ? event.keyCode : event.which);
