@@ -38,11 +38,16 @@ $(function() {
     totaldiv.text(number);
     testNumLength(number);
     });
-    $("#operators > a").not("#equals").click(function(){
-    operator = $(this).text();
-    newnumber = number;
-    number = "";
-    totaldiv.text("0");
+    $("#operators a, #side a").not("#equals, #decimal").click(function(){
+        if ($(this).attr("id") === "sqrt") {
+            operator = "sqrt";
+            $("#equals").trigger();
+            return
+        }
+        operator = $(this).text();
+        newnumber = number;
+        number = "";
+        totaldiv.text("0");
     });
     $("#clear,#clearall").click(function(){
     number = "";
