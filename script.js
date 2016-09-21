@@ -56,6 +56,19 @@ $(function() {
       newnumber = "";
     }
     });
+    $("#decimal").click(function() {
+        var numOfDecs = 0;
+        for (i=0; i <= number.length; i++) {
+            if (number[i] === ".") {
+                numOfDecs =+ 1;   
+            }
+        }
+        if (numOfDecs === 0){
+            number = number + ".";
+        }
+        totaldiv.text(number);
+        testNumLength(number);
+    })
     $("#equals").click(function(){
     if (operator === "+"){
       number = (parseInt(number, 10) + parseInt(newnumber,10)).toString(10);
