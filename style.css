@@ -5,7 +5,7 @@ body, div, a {
 }
 
 #calculator {
-  background-color: #999;
+  background-color: #00aba9;
   width: 310px;
   height: 460px;
   border: 3px black solid;
@@ -34,7 +34,7 @@ body, div, a {
 }
 
 #numbers, #operators {
-  margin: auto; 
+  margin: auto;
 }
 
 #operators a {
