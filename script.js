@@ -1,3 +1,4 @@
+$(document).ready(function(){
 var round = function(text, pos) {
     function setCharAt(str,index,chr) {
        if(index > str.length-1) return str;
@@ -12,21 +13,19 @@ var round = function(text, pos) {
                 } else {
                     text = text.substr(0,pos);
                 }
-            } 
+            }
         }
     }
     return text;
 };
-var $ = jQuery.noConflict();
-$(function() {
-    var testNumLength = function(number) {
+    var testNumLength = function(number){
         if (number.length > 9) {
             totaldiv.text(number.substr(number.length-9,9));
             if (number.length > 15) {
                 number = "";
                 totaldiv.text("Err");
             }
-        } 
+        }
     };
     var number = "";
     var newnumber = "";
@@ -60,7 +59,7 @@ $(function() {
         var numOfDecs = 0;
         for (i=0; i <= number.length; i++) {
             if (number[i] === ".") {
-                numOfDecs =+ 1;   
+                numOfDecs =+ 1;
             }
         }
         if (numOfDecs === 0){
@@ -79,9 +78,9 @@ $(function() {
         } else if (operator === "*"){
             number = (parseFloat(newnumber, 10) * parseFloat(number,10)).toString(10);
         } else if (operator === "&sqrt;"){
-            number = (Math.sqrt(parseFloat(number, 10))).toString(10);   
+            number = (Math.sqrt(parseFloat(number, 10))).toString(10);
         } else if (operator === "^"){
-            number = (Math.pow(parseFloat(newnumber, 10))).toString(10);   
+            number = (Math.pow(parseFloat(newnumber, 10))).toString(10);
         }
         totaldiv.text(number);
         testNumLength(number);
@@ -126,4 +125,4 @@ $(function() {
             $("#divide").click();
         }
     });
-}); 
+});
