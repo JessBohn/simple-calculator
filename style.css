@@ -48,6 +48,7 @@ body, div, a {
 }
 
 #numbers a {
+  box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
   color: #00076f;
   background: #ffe4f2;
   width: 50px;
