@@ -5,7 +5,7 @@ body, div, a {
 }
 
 #calculator {
-  background-color: #999;
+  background-color: #e54ed0;
   width: 310px;
   height: 460px;
   border: 3px black solid;
@@ -34,10 +34,12 @@ body, div, a {
 }
 
 #numbers, #operators {
-  margin: auto; 
+  margin: auto;
 }
 
 #operators a {
+  background: #44008b;
+  color: white;
   width: 46px;
   height: 45px;
   font-size: 39px;
@@ -46,6 +48,9 @@ body, div, a {
 }
 
 #numbers a {
+  box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
+  color: #00076f;
+  background: #ffe4f2;
   width: 50px;
   height: 50px;
   font-size: 32px;
@@ -70,6 +75,8 @@ body, div, a {
 }
 
 #side a {
+    background: #44008b;
+    color: white;
     width: 40px;
     height: 40px;
     font-size: 32px;
@@ -79,7 +86,8 @@ body, div, a {
     margin: 5px;
 }
 
-a#equals{
+a#equals{;
+    background: #00076f;
     padding-top: 50px;
     height: 100px;
 }
